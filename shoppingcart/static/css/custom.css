@@ -1,0 +1,48 @@
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.nav-item {
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform:uppercase ;
+}
+.dropdown-item{
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform:uppercase ;
+
+}
+.myfooter{
+    font-size:14px ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.my_search_text{
+    padding-top: 20px;
+}
+/*** cart page ***/
+
+.my_custom_table{
+    min-width: 400px;
+    font-size: 14px;
+}
+.my_custom_thead{
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    background-color: blanchedalmond;
+}
+.custom_a{
+    text-decoration: none;
+
+}
+.custom_icon{
+    text-decoration: none;
+    color: #868e96 !important;
+}
+.my_custom_button{
+    margin-top: 5px;
+}
+.abclass{
+    text-decoration: none;
+    color: black;
+}

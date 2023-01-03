@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+    {{ category.description|truncatewords:155 }}
+    {% else %}
+        welcome
+    {% endif %}
+{% endblock %}
+{% block title %}
+{% if category %}
+        {{category.name }} - ABC store
+    {% else %}
+    see our new collections
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+{% if category %}
+<div>
+    <div>
+        <p><a href="{% url 'shopapp:index' %}">Our a products</a></p>
+    </div>
+</div>
+{% endif %}
+<div>
+    {% if category %}
+    <img style="width: 100%; height: 300px;" src="{{category.image.url}}" alt="{{category.name}}">
+
+</div> <br>
+<div>
+    <h1>
+        {{category.name}} 
+    </h1>
+    <p>
+        {{category.description}}
+    </p>
+</div> 
+<div>
+    {% else %}
+    <img src="{% static '/img/1banner.jpg' %}" style="width:100% ;height: 200px ;" alt="our product">
+</div><br><div>
+    <h1>OUR PRODUCTS</h1>
+    <p>THIS IS A WEBSITE FOR MOVIE AND SERIES LOVERS</p>
+</div>
+{% endif %}
+<div class="container">
+    <div  class="row">
+        {% for i in products.object_list %}
+        <div class="col-3">
+
+            <div >
+                <a href="{{i.get_url}}"><img style="height:100px ; width: 100px;" src="{{i.image.url}}"  alt="{{i.name}}"></a>
+                <div>
+                    <h4>{{i.name}}</h4>
+                    <p>{{i.price}}</p>
+                </div>
+            </div>
+            
+        </div>{% endfor %}
+    </div></div>
+    <div class="max-auto">
+        {% if products.paginator.num_pages > 1 %}
+        <br><br><br><br>
+        <div class="text-center">next page >> 
+            {% for pg in products.paginator.page_range %}
+            
+            <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor %}
+        </div>{% endif %}
+
+    </div>
+    
+</div>
+
+{% endblock %}
